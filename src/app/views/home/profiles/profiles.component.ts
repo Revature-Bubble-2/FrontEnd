@@ -17,7 +17,6 @@ export class ProfilesComponent implements OnInit {
 
   getPageOfProfiles() {
     this.profileService.getPageOfProfiles(this.pageNumber).subscribe((profiles) => {
-
       console.log("this is profiles")
       console.log(profiles)
       this.pageOfProfiles = profiles;
