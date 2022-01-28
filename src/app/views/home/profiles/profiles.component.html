@@ -1,0 +1,7 @@
+
+<button (click)="getPageOfProfiles()">Get Profiles</button>
+<ul>
+  <li *ngFor="let profile of pageOfProfiles">
+    {{profile.username}}
+  </li>
+</ul>

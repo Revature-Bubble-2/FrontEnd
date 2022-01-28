@@ -52,4 +52,10 @@ export class ProfileService {
     var token = sessionStorage.getItem("Authorization");
     return this.http.post<Profile>(environment.url+'/profile/token', `token=${token}`, { observe: 'response', headers: {'Content-Type': 'application/x-www-form-urlencoded'}});
   }
+
+  getPageOfProfiles(pageNumber: number): Observable<any>{
+
+
+    return this.http.get<Profile>(`${environment.url}/profile/page/${pageNumber}`)
+  }
 }
