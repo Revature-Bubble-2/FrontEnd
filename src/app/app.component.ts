@@ -1,17 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-selector: 'app-form-upload',
-templateUrl: './form-upload.component.html',
-styleUrls: ['./form-upload.component.css']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class FormUploadComponent implements OnInit {
-
-
-constructor(private uploadService: UploadService) { }
-
-ngOnInit() {
+export class AppComponent {
+  title = 'bubble';
 }
-
-
-  }
