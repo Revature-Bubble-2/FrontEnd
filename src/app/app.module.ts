@@ -4,10 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbTooltipModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
-
-
-import { AppComponent } from './app.component';
+import { FormUploadComponent } from './app.component';
 import { LoginComponent } from './views/login/login/login.component';
 import { ProfileComponent } from './views/home/profile/profile.component';
 import { RegisterComponent } from './views/register/register/register.component';
@@ -32,7 +29,6 @@ import { CreateCommentComponent } from './views/posts/create-comment/create-comm
 
 @NgModule({
   declarations: [
-    AppComponent,
     LoginComponent,
     ProfileComponent,
     RegisterComponent,
@@ -77,7 +73,7 @@ import { CreateCommentComponent } from './views/posts/create-comment/create-comm
     NgbTooltipModule,
     AppRoutingModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [FormUploadComponent]
 
 })
 export class AppModule { }
