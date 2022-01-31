@@ -13,7 +13,7 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./create-comment.component.css']
 })
 export class CreateCommentComponent implements OnInit {
-  @Input() 
+  @Input()
   post!: Post;
   comment: Comment= {};
   reply: Comment = {};
@@ -31,7 +31,7 @@ export class CreateCommentComponent implements OnInit {
   previous: Comment ={};
 
   constructor(
-    public commentService: CommentService, 
+    public commentService: CommentService,
     public activeModal: NgbActiveModal,
     private renderer: Renderer2
     ) {}
@@ -42,11 +42,11 @@ export class CreateCommentComponent implements OnInit {
     modaled?.setAttribute("style","border-radius:30px;");
 
     this.getOriginCommentsByPsid();
-    
+
     let sessionProfile = sessionStorage.getItem("profile");
     if(sessionProfile!=null){
       this.profile = JSON.parse(sessionProfile);
-    } 
+    }
   }
 
   dateFormatForComment(d?: Date) {
@@ -71,19 +71,20 @@ export class CreateCommentComponent implements OnInit {
       d = new Date(temp);
       this.dateFormatForReply(d);
     }
-    return true;   
+    return true;
   }
-  
+
   getOriginCommentsByPsid(){
     if(this.post.psid){
       this.commentService.getCommentsByPsid(this.post.psid).subscribe(
         (result)=>{
           this.comments = result;
+          console.log(this.comments);
           this.comments = this.comments.filter(obj => obj.previous==null);
           this.getReplyComments();
         }
       )
-    }  
+    }
   }
 
   getReplyComments(){
@@ -94,7 +95,7 @@ export class CreateCommentComponent implements OnInit {
           this.replys = this.replys.filter(obj => obj.previous!=null)
         }
       )
-    }  
+    }
   }
 
   submitComment(comment: Comment){
@@ -122,7 +123,7 @@ export class CreateCommentComponent implements OnInit {
         (result)=>{
           this.isReply = false;
           this.reply.cbody = "";
-          this.getOriginCommentsByPsid(); 
+          this.getOriginCommentsByPsid();
         }
       );
     }
