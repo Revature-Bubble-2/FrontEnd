@@ -18,10 +18,6 @@ export class SearchComponent {
 
   constructor(private profile: ProfileService) { }
 
-  public setid(id: number): void{
-    this.id = this.id
-  }
-
   public searchUser(){
     this.profile.getProfileByUsername(this.username)
       //.subscribe(data => {this.pro = data, this.setid(this.pro.pid ?? 0)})
