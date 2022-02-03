@@ -31,6 +31,7 @@ import { InterceptorService } from './helper/interceptor.service';
 import { CreateCommentComponent } from './views/posts/create-comment/create-comment.component';
 import { ResetpasswordComponent } from './views/login/resetpassword/resetpassword.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { ResetpasswordComponent } from './views/login/resetpassword/resetpasswor
     FollowComponent,
     LikeComponent,
     PostFeedComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    
   ],
   imports: [
     BrowserModule,
