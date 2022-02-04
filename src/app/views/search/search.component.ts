@@ -1,8 +1,6 @@
 import { Profile } from './../../models/profile';
 import { ProfileService } from 'app/services/profile.service';
-import { Component, OnInit } from '@angular/core';
-import { subscribeOn } from 'rxjs/operators';
-
+import { Component } from '@angular/core';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -11,7 +9,7 @@ import { subscribeOn } from 'rxjs/operators';
 export class SearchComponent {
 
 
-  username = '';
+  username: string = '';
   public pro = new Profile(0,'', '', '', '', '')
   id = 0;
   public profiles: Profile[] = []
@@ -19,6 +17,7 @@ export class SearchComponent {
   constructor(private profile: ProfileService) { }
 
   public searchUser(){
+    console.log(this.username)
     this.profile.getProfileByUsername(this.username)
       //.subscribe(data => {this.pro = data, this.setid(this.pro.pid ?? 0)})
       .subscribe(data => this.profiles.push(data))
