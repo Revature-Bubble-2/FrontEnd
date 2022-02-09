@@ -38,8 +38,8 @@ export class GroupPageComponent implements OnInit {
       prof.email,
       prof.username,
       prof.verification,
-      prof.groups
-    );
+      prof.groups);
+
     this.updateJoinedGroups();
 
   }
@@ -86,7 +86,6 @@ export class GroupPageComponent implements OnInit {
   public searchByName() {
     if (this.searchName == '') {
       alert("please enter something to search by")
-      return;
     } else {
       this.sGroups = [];
       this.groupService
@@ -100,22 +99,18 @@ export class GroupPageComponent implements OnInit {
   }
 
   public getSearchGroupName(target: number) {
-    let result = this.sGroups[target].groupName;
-    return result;
+    return this.sGroups[target].groupName;
   }
 
   public getJoinedGroupName(target: number) {
-    let result = this.mGroups[target].groupName;
-    return result;
+    return this.mGroups[target].groupName;
   }
 
   public joinGroup(targetGroup: number) {
     let targetId = this.sGroups[targetGroup].groupId;
     let userId = this.profile.pid;
 
-    if (!targetId) {
-      return;
-    } else {
+    if (!!targetId) {
       for (let g of this.profile.groups) {
         let gId = this.groupService.getGroupId(g);
         if (targetId == gId) {
@@ -123,9 +118,9 @@ export class GroupPageComponent implements OnInit {
           return;
         }
       }
-      this.groupService.joinGroup(targetId, userId).subscribe((data: any) => {
-        this.profileService.getProfileByPid(userId).subscribe((data: any) => {
-          this.profileService.setData(data);
+      this.groupService.joinGroup(targetId, userId).subscribe((groupData: any) => {
+        this.profileService.getProfileByPid(userId).subscribe((userData: any) => {
+          this.profileService.setData(userData);
 
           this.updateProfile();
           this.updateJoinedGroups();
@@ -141,19 +136,17 @@ export class GroupPageComponent implements OnInit {
     let targetId = this.mGroups[targetGroup].groupId;
     let userId = this.profile.pid;
 
-    if (!targetId) {
-      return;
-    } else {
+    if (!!targetId) {
       for (let g of this.profile.groups) {
         let gId = this.groupService.getGroupId(g);
         if (targetId == gId) {
           this.groupService
             .leaveGroup(targetId, userId)
-            .subscribe((data: any) => {
+            .subscribe((groupData: any) => {
               this.profileService
                 .getProfileByPid(userId)
-                .subscribe((data: any) => {
-                  this.profileService.setData(data);
+                .subscribe((userData: any) => {
+                  this.profileService.setData(userData);
                   this.updateProfile();
                   this.updateJoinedGroups();
                   this.updateSession();
