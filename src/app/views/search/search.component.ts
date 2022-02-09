@@ -24,6 +24,7 @@ export class SearchComponent {
 
   public searchUser(username:string){
     console.log(username)
+    console.log(this.profiles)
     this.profile.getProfileByUsername(username)
       .subscribe(data => this.profiles = data)
 

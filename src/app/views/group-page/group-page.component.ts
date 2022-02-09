@@ -41,15 +41,7 @@ export class GroupPageComponent implements OnInit {
       prof.groups
     );
     this.updateJoinedGroups();
-    // this.profileService.getProfileByPid(prof.pid).subscribe((data:any) => {
-    //   this.profile.email = data.email;
-    //   this.profile.firstName = data.firstName;
-    //   this.profile.imgurl = data.imgurl;
-    //   this.profile.lastName = data.lastname;
-    //   this.profile.passkey = data.passkey;
-    //   this.profile.pid = data.pid;
-    //   this.profile.username = data.username;
-    // });
+
   }
 
   public updateProfile() {
